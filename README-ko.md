@@ -1,18 +1,18 @@
 # clean-code-javascript
 
-## Table of Contents
-  1. [Introduction](#introduction)
-  2. [Variables](#variables)
-  3. [Functions](#functions)
-  4. [Objects and Data Structures](#objects-and-data-structures)
-  5. [Classes](#classes)
-  6. [Testing](#testing)
-  7. [Concurrency](#concurrency)
-  8. [Error Handling](#error-handling)
-  9. [Formatting](#formatting)
-  10. [Comments](#comments)
+## 목차
+  1. [소개](#소개)
+  2. [변수](#변수)
+  3. [함수](#함수)
+  4. [오브젝트 및 자료구조](#오브젝트-및-자료구조)
+  5. [클래스](#클래스)
+  6. [테스팅](#테스팅)
+  7. [동시성](#동시성)
+  8. [오류 처리](#오류-처리)
+  9. [포맷팅](#포맷팅)
+  10. [주석](#주석)
 
-## Introduction
+## 소개
 ![Humorous image of software quality estimation as a count of how many expletives
 you shout when reading code](http://www.osnews.com/images/comics/wtfm.jpg)
 
@@ -39,7 +39,7 @@ shaped into its final form. Finally, we chisel away the imperfections when
 we review it with our peers. Don't beat yourself up for first drafts that need
 improvement. Beat up the code instead!
 
-## **Variables**
+## **변수**
 ### Use meaningful and pronounceable variable names
 
 **Bad:**
@@ -193,7 +193,7 @@ function createMicrobrewery(breweryName = 'Hipster Brew Co.') {
 ```
 **[⬆ back to top](#table-of-contents)**
 
-## **Functions**
+## **함수**
 ### Function arguments (2 or fewer ideally)
 Limiting the amount of function parameters is incredibly important because it
 makes testing your function easier. Having more than three leads to a
@@ -857,7 +857,7 @@ inventoryTracker('apples', req, 'www.inventory-awesome.io');
 ```
 **[⬆ back to top](#table-of-contents)**
 
-## **Objects and Data Structures**
+## **오브젝트 및 자료구조**
 ### Use getters and setters
 JavaScript doesn't have interfaces or types so it is very hard to enforce this
 pattern, because we don't have keywords like `public` and `private`. As it is,
@@ -960,7 +960,7 @@ console.log(`Employee name: ${employee.getName()}`); // Employee name: John Doe
 **[⬆ back to top](#table-of-contents)**
 
 
-## **Classes**
+## **클래스**
 ### Single Responsibility Principle (SRP)
 As stated in Clean Code, "There should never be more than one reason for a class
 to change". It's tempting to jam-pack a class with a lot of functionality, like
@@ -1635,7 +1635,7 @@ class Employee {
 ```
 **[⬆ back to top](#table-of-contents)**
 
-## **Testing**
+## **테스팅**
 Testing is more important than shipping. If you have no tests or an
 inadequate amount, then every time you ship code you won't be sure that you
 didn't break anything. Deciding on what constitutes an adequate amount is up
@@ -1703,7 +1703,7 @@ describe('MakeMomentJSGreatAgain', () => {
 ```
 **[⬆ back to top](#table-of-contents)**
 
-## **Concurrency**
+## **동시성**
 ### Use Promises, not callbacks
 Callbacks aren't clean, and they cause excessive amounts of nesting. With ES2015/ES6,
 Promises are a built-in global type. Use them!
@@ -1779,7 +1779,7 @@ async function getCleanCodeArticle() {
 **[⬆ back to top](#table-of-contents)**
 
 
-## **Error Handling**
+## **오류 처**
 Thrown errors are a good thing! They mean the runtime has successfully
 identified when something in your program has gone wrong and it's letting
 you know by stopping function execution on the current stack, killing the
@@ -1852,7 +1852,7 @@ getdata()
 **[⬆ back to top](#table-of-contents)**
 
 
-## **Formatting**
+## **포맷팅**
 Formatting is subjective. Like many rules herein, there is no hard and fast
 rule that you must follow. The main point is DO NOT ARGUE over formatting.
 There are [tons of tools](http://standardjs.com/rules.html) to automate this.
@@ -1984,7 +1984,7 @@ review.perfReview();
 
 **[⬆ back to top](#table-of-contents)**
 
-## **Comments**
+## **주석**
 ### Only comment things that have business logic complexity.
 Comments are an apology, not a requirement. Good code *mostly* documents itself.
 
