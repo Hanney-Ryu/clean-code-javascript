@@ -106,7 +106,7 @@ saveCityZipCode(address.match(cityZipCodeRegex)[1], address.match(cityZipCodeReg
 ```javascript
 const address = 'One Infinite Loop, Cupertino 95014';
 const cityZipCodeRegex = /^[^,\\]+[,\\\s]+(.+?)\s*(\d{5})?$/;
-const [, city, zipCode] = address.match(cityZipCodeRegex);
+const [, city, zipCode] = address.match(cityZipCodeRegex) || [];
 saveCityZipCode(city, zipCode);
 ```
 **[⬆ 맨 위로](#목차)**
@@ -1582,7 +1582,7 @@ depends on your problem at hand, but this is a decent list of when inheritance
 makes more sense than composition:
 
 1. Your inheritance represents an "is-a" relationship and not a "has-a"
-relationship (Animal->Human vs. User->UserDetails).
+relationship (Human->Animal vs. User->UserDetails).
 2. You can reuse code from the base classes (Humans can move like all animals).
 3. You want to make global changes to derived classes by changing a base class.
 (Change the caloric expenditure of all animals when they move).
