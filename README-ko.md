@@ -16,28 +16,28 @@
 ![Humorous image of software quality estimation as a count of how many expletives
 you shout when reading code](http://www.osnews.com/images/comics/wtfm.jpg)
 
-Software engineering principles, from Robert C. Martin's book
-[*Clean Code*](https://www.amazon.com/Clean-Code-Handbook-Software-Craftsmanship/dp/0132350882),
-adapted for JavaScript. This is not a style guide. It's a guide to producing
-readable, reusable, and refactorable software in JavaScript.
+로버트 C. 마틴의 저서,
+[*Clean Code*](https://www.amazon.com/Clean-Code-Handbook-Software-Craftsmanship/dp/0132350882)
+에서 주창된 소프트웨어 공학의 원칙을 자바스크립트에 적용했다. 이것은 스타일 가이드가 아니다. 이것은 
+자바스크립트로 된 읽기 좋고, 재사용하기 쉬우며, 리팩토링하기에 쉬운 소프트웨어를 만들기 위한 가이드다.
 
-Not every principle herein has to be strictly followed, and even fewer will be
-universally agreed upon. These are guidelines and nothing more, but they are
-ones codified over many years of collective experience by the authors of
-*Clean Code*.
+여기 있는 모든 원칙이 반드시 엄격히 지켜져야 하는 것은 아니며, 심지어는 합의되지 않을 수도 있다. 
+이것은 가이드라인에 불과하지만,
+*Clean Code*
+의 저자들이 수년간 공동 경험을 통해 성문화한 것이다.
 
-Our craft of software engineering is just a bit over 50 years old, and we are
-still learning a lot. When software architecture is as old as architecture
-itself, maybe then we will have harder rules to follow. For now, let these
-guidelines serve as a touchstone by which to assess the quality of the
-JavaScript code that you and your team produce.
+소프트웨어 엔지니어링 기술은 이제 50년이 조금 넘었으며 여전히 우리는 많은 것을 배우고 있다.
+시간이 지나 소프트웨어 아키텍처가 아키텍처만큼 성숙했을 때,
+아마도 우리는 더욱 엄격한 규칙들을 따라야 할 것이다. 일단 지금,
+이 가이드라인을 당신과 당신의 팀이 작성하는 자바스크립트 코드의 품질을 평가하는 
+시금석으로 삼자.
 
-One more thing: knowing these won't immediately make you a better software
-developer, and working with them for many years doesn't mean you won't make
-mistakes. Every piece of code starts as a first draft, like wet clay getting
-shaped into its final form. Finally, we chisel away the imperfections when
-we review it with our peers. Don't beat yourself up for first drafts that need
-improvement. Beat up the code instead!
+한 가지 더: 이것들을 안다고 곧바로 당신이 더 나은 개발자가 되는 것은 아니며, 
+수년간 이를 적용해왔다고 해서 실수를 안 하게 되는 것은 아니다.
+코드의 모든 부분은 첫 번째 초안으로부터 시작된다. 이는 마치 젖은 점토가 점점 형태를 갖춰 가는 것과 같다.
+마지막으로, 우리는 동료들과의 리뷰를 통해 불완전성을 제거한다.
+개선이 필요한 첫 번째 초안 때문에 자신을 괴롭히지 말자.
+대신 코드와 싸워 이기자!
 
 ## **변수**
 ### Use meaningful and pronounceable variable names
@@ -51,7 +51,7 @@ const yyyymmdstr = moment().format('YYYY/MM/DD');
 ```javascript
 const currentDate = moment().format('YYYY/MM/DD');
 ```
-**[⬆ back to top](#table-of-contents)**
+**[⬆ 맨 위로](#목차)**
 
 ### Use the same vocabulary for the same type of variable
 
@@ -66,7 +66,7 @@ getCustomerRecord();
 ```javascript
 getUser();
 ```
-**[⬆ back to top](#table-of-contents)**
+**[⬆ 맨 위로](#목차)**
 
 ### Use searchable names
 We will read more code than we will ever write. It's important that the code we
@@ -92,7 +92,7 @@ const MILLISECONDS_IN_A_DAY = 86400000;
 setTimeout(blastOff, MILLISECONDS_IN_A_DAY);
 
 ```
-**[⬆ back to top](#table-of-contents)**
+**[⬆ 맨 위로](#목차)**
 
 ### Use explanatory variables
 **Bad:**
@@ -109,7 +109,7 @@ const cityZipCodeRegex = /^[^,\\]+[,\\\s]+(.+?)\s*(\d{5})?$/;
 const [, city, zipCode] = address.match(cityZipCodeRegex);
 saveCityZipCode(city, zipCode);
 ```
-**[⬆ back to top](#table-of-contents)**
+**[⬆ 맨 위로](#목차)**
 
 ### Avoid Mental Mapping
 Explicit is better than implicit.
@@ -140,7 +140,7 @@ locations.forEach((location) => {
   dispatch(location);
 });
 ```
-**[⬆ back to top](#table-of-contents)**
+**[⬆ 맨 위로](#목차)**
 
 ### Don't add unneeded context
 If your class/object name tells you something, don't repeat that in your
@@ -171,7 +171,7 @@ function paintCar(car) {
   car.color = 'Red';
 }
 ```
-**[⬆ back to top](#table-of-contents)**
+**[⬆ 맨 위로](#목차)**
 
 ### Use default arguments instead of short circuiting or conditionals
 
@@ -191,7 +191,7 @@ function createMicrobrewery(breweryName = 'Hipster Brew Co.') {
 }
 
 ```
-**[⬆ back to top](#table-of-contents)**
+**[⬆ 맨 위로](#목차)**
 
 ## **함수**
 ### Function arguments (2 or fewer ideally)
@@ -231,7 +231,7 @@ function createMenu(config) {
 }
 
 ```
-**[⬆ back to top](#table-of-contents)**
+**[⬆ 맨 위로](#목차)**
 
 
 ### Functions should do one thing
@@ -266,7 +266,7 @@ function isClientActive(client) {
   return clientRecord.isActive();
 }
 ```
-**[⬆ back to top](#table-of-contents)**
+**[⬆ 맨 위로](#목차)**
 
 ### Function names should say what they do
 
@@ -291,7 +291,7 @@ function addMonthToDate(month, date) {
 const date = new Date();
 addMonthToDate(1, date);
 ```
-**[⬆ back to top](#table-of-contents)**
+**[⬆ 맨 위로](#목차)**
 
 ### Functions should only be one level of abstraction
 When you have more than one level of abstraction your function is usually
@@ -359,7 +359,7 @@ function parseBetterJSAlternative(code) {
   });
 }
 ```
-**[⬆ back to top](#table-of-contents)**
+**[⬆ 맨 위로](#목차)**
 
 ### Remove duplicate code
 Do your absolute best to avoid duplicate code. Duplicate code is bad because it
@@ -439,7 +439,7 @@ function showList(employees) {
   });
 }
 ```
-**[⬆ back to top](#table-of-contents)**
+**[⬆ 맨 위로](#목차)**
 
 ### Set default objects with Object.assign
 
@@ -485,7 +485,7 @@ function createMenu(config) {
 
 createMenu(menuConfig);
 ```
-**[⬆ back to top](#table-of-contents)**
+**[⬆ 맨 위로](#목차)**
 
 
 ### Don't use flags as function parameters
@@ -512,7 +512,7 @@ function createTempFile(name) {
   createFile(`./temp/${name}`);
 }
 ```
-**[⬆ back to top](#table-of-contents)**
+**[⬆ 맨 위로](#목차)**
 
 ### Avoid Side Effects
 A function produces a side effect if it does anything other than take a value in
@@ -557,7 +557,7 @@ const newName = splitIntoFirstAndLastName(name);
 console.log(name); // 'Ryan McDermott';
 console.log(newName); // ['Ryan', 'McDermott'];
 ```
-**[⬆ back to top](#table-of-contents)**
+**[⬆ 맨 위로](#목차)**
 
 ### Don't write to global functions
 Polluting globals is a bad practice in JavaScript because you could clash with another
@@ -587,7 +587,7 @@ class SuperArray extends Array {
   }
 }
 ```
-**[⬆ back to top](#table-of-contents)**
+**[⬆ 맨 위로](#목차)**
 
 ### Favor functional programming over imperative programming
 JavaScript isn't a functional language in the way that Haskell is, but it has
@@ -641,7 +641,7 @@ const totalOutput = programmerOutput
   .map((programmer) => programmer.linesOfCode)
   .reduce((acc, linesOfCode) => acc + linesOfCode, 0);
 ```
-**[⬆ back to top](#table-of-contents)**
+**[⬆ 맨 위로](#목차)**
 
 ### Encapsulate conditionals
 
@@ -662,7 +662,7 @@ if (shouldShowSpinner(fsmInstance, listNodeInstance)) {
   // ...
 }
 ```
-**[⬆ back to top](#table-of-contents)**
+**[⬆ 맨 위로](#목차)**
 
 ### Avoid negative conditionals
 
@@ -687,7 +687,7 @@ if (isDOMNodePresent(node)) {
   // ...
 }
 ```
-**[⬆ back to top](#table-of-contents)**
+**[⬆ 맨 위로](#목차)**
 
 ### Avoid conditionals
 This seems like an impossible task. Upon first hearing this, most people say,
@@ -743,7 +743,7 @@ class Cessna extends Airplane {
   }
 }
 ```
-**[⬆ back to top](#table-of-contents)**
+**[⬆ 맨 위로](#목차)**
 
 ### Avoid type-checking (part 1)
 JavaScript is untyped, which means your functions can take any type of argument.
@@ -768,7 +768,7 @@ function travelToTexas(vehicle) {
   vehicle.move(this.currentLocation, new Location('texas'));
 }
 ```
-**[⬆ back to top](#table-of-contents)**
+**[⬆ 맨 위로](#목차)**
 
 ### Avoid type-checking (part 2)
 If you are working with basic primitive values like strings, integers, and arrays,
@@ -799,7 +799,7 @@ function combine(val1, val2) {
   return val1 + val2;
 }
 ```
-**[⬆ back to top](#table-of-contents)**
+**[⬆ 맨 위로](#목차)**
 
 ### Don't over-optimize
 Modern browsers do a lot of optimization under-the-hood at runtime. A lot of
@@ -824,7 +824,7 @@ for (let i = 0; i < list.length; i++) {
   // ...
 }
 ```
-**[⬆ back to top](#table-of-contents)**
+**[⬆ 맨 위로](#목차)**
 
 ### Remove dead code
 Dead code is just as bad as duplicate code. There's no reason to keep it in
@@ -855,7 +855,7 @@ function newRequestModule(url) {
 const req = newRequestModule;
 inventoryTracker('apples', req, 'www.inventory-awesome.io');
 ```
-**[⬆ back to top](#table-of-contents)**
+**[⬆ 맨 위로](#목차)**
 
 ## **오브젝트 및 자료구조**
 ### Use getters and setters
@@ -921,7 +921,7 @@ bankAccount.balance -= shoesPrice;
 let balance = bankAccount.balance;
 
 ```
-**[⬆ back to top](#table-of-contents)**
+**[⬆ 맨 위로](#목차)**
 
 
 ### Make objects have private members
@@ -957,7 +957,7 @@ console.log(`Employee name: ${employee.getName()}`); // Employee name: John Doe
 delete employee.name;
 console.log(`Employee name: ${employee.getName()}`); // Employee name: John Doe
 ```
-**[⬆ back to top](#table-of-contents)**
+**[⬆ 맨 위로](#목차)**
 
 
 ## **클래스**
@@ -1016,7 +1016,7 @@ class UserSettings {
   }
 }
 ```
-**[⬆ back to top](#table-of-contents)**
+**[⬆ 맨 위로](#목차)**
 
 ### Open/Closed Principle (OCP)
 As stated by Bertrand Meyer, "software entities (classes, modules, functions,
@@ -1103,7 +1103,7 @@ class HttpRequester {
   }
 }
 ```
-**[⬆ back to top](#table-of-contents)**
+**[⬆ 맨 위로](#목차)**
 
 
 ### Liskov Substitution Principle (LSP)
@@ -1240,7 +1240,7 @@ function renderLargeShapes(shapes) {
 const shapes = [new Rectangle(), new Rectangle(), new Square()];
 renderLargeShapes(shapes);
 ```
-**[⬆ back to top](#table-of-contents)**
+**[⬆ 맨 위로](#목차)**
 
 ### Interface Segregation Principle (ISP)
 JavaScript doesn't have interfaces so this principle doesn't apply as strictly
@@ -1314,7 +1314,7 @@ const $ = new DOMTraverser({
   }
 });
 ```
-**[⬆ back to top](#table-of-contents)**
+**[⬆ 맨 위로](#목차)**
 
 ### Dependency Inversion Principle (DIP)
 This principle states two essential things:
@@ -1409,7 +1409,7 @@ class InventoryRequesterV2 {
 const inventoryTracker = new InventoryTracker(['apples', 'bananas'], new InventoryRequesterV2());
 inventoryTracker.requestItems();
 ```
-**[⬆ back to top](#table-of-contents)**
+**[⬆ 맨 위로](#목차)**
 
 ### Prefer ES2015/ES6 classes over ES5 plain functions
 It's very difficult to get readable class inheritance, construction, and method
@@ -1484,7 +1484,7 @@ class Human extends Mammal {
   speak() { /* ... */ }
 }
 ```
-**[⬆ back to top](#table-of-contents)**
+**[⬆ 맨 위로](#목차)**
 
 
 ### Use method chaining
@@ -1567,7 +1567,7 @@ const car = new Car()
   .setModel('F-150')
   .save();
 ```
-**[⬆ back to top](#table-of-contents)**
+**[⬆ 맨 위로](#목차)**
 
 ### Prefer composition over inheritance
 As stated famously in [*Design Patterns*](https://en.wikipedia.org/wiki/Design_Patterns) by the Gang of Four,
@@ -1633,7 +1633,7 @@ class Employee {
   // ...
 }
 ```
-**[⬆ back to top](#table-of-contents)**
+**[⬆ 맨 위로](#목차)**
 
 ## **테스팅**
 Testing is more important than shipping. If you have no tests or an
@@ -1701,7 +1701,7 @@ describe('MakeMomentJSGreatAgain', () => {
   });
 });
 ```
-**[⬆ back to top](#table-of-contents)**
+**[⬆ 맨 위로](#목차)**
 
 ## **동시성**
 ### Use Promises, not callbacks
@@ -1740,7 +1740,7 @@ require('request-promise').get('https://en.wikipedia.org/wiki/Robert_Cecil_Marti
   });
 
 ```
-**[⬆ back to top](#table-of-contents)**
+**[⬆ 맨 위로](#목차)**
 
 ### Async/Await are even cleaner than Promises
 Promises are a very clean alternative to callbacks, but ES2017/ES8 brings async and await
@@ -1776,10 +1776,10 @@ async function getCleanCodeArticle() {
   }
 }
 ```
-**[⬆ back to top](#table-of-contents)**
+**[⬆ 맨 위로](#목차)**
 
 
-## **오류 처**
+## **오류 처리**
 Thrown errors are a good thing! They mean the runtime has successfully
 identified when something in your program has gone wrong and it's letting
 you know by stopping function execution on the current stack, killing the
@@ -1849,7 +1849,7 @@ getdata()
 });
 ```
 
-**[⬆ back to top](#table-of-contents)**
+**[⬆ 맨 위로](#목차)**
 
 
 ## **포맷팅**
@@ -1896,7 +1896,7 @@ function restoreDatabase() {}
 class Animal {}
 class Alpaca {}
 ```
-**[⬆ back to top](#table-of-contents)**
+**[⬆ 맨 위로](#목차)**
 
 
 ### Function callers and callees should be close
@@ -1982,7 +1982,7 @@ const review = new PerformanceReview(employee);
 review.perfReview();
 ```
 
-**[⬆ back to top](#table-of-contents)**
+**[⬆ 맨 위로](#목차)**
 
 ## **주석**
 ### Only comment things that have business logic complexity.
@@ -2026,7 +2026,7 @@ function hashIt(data) {
 }
 
 ```
-**[⬆ back to top](#table-of-contents)**
+**[⬆ 맨 위로](#목차)**
 
 ### Don't leave commented out code in your codebase
 Version control exists for a reason. Leave old code in your history.
@@ -2043,7 +2043,7 @@ doStuff();
 ```javascript
 doStuff();
 ```
-**[⬆ back to top](#table-of-contents)**
+**[⬆ 맨 위로](#목차)**
 
 ### Don't have journal comments
 Remember, use version control! There's no need for dead code, commented code,
@@ -2068,7 +2068,7 @@ function combine(a, b) {
   return a + b;
 }
 ```
-**[⬆ back to top](#table-of-contents)**
+**[⬆ 맨 위로](#목차)**
 
 ### Avoid positional markers
 They usually just add noise. Let the functions and variable names along with the
@@ -2103,4 +2103,4 @@ const actions = function() {
   // ...
 };
 ```
-**[⬆ back to top](#table-of-contents)**
+**[⬆ 맨 위로](#목차)**
