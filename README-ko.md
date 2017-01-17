@@ -194,21 +194,21 @@ function createMicrobrewery(breweryName = 'Hipster Brew Co.') {
 **[⬆ 맨 위로](#목차)**
 
 ## **함수**
-### Function arguments (2 or fewer ideally)
-Limiting the amount of function parameters is incredibly important because it
-makes testing your function easier. Having more than three leads to a
-combinatorial explosion where you have to test tons of different cases with
-each separate argument.
+### 함수에서의 인수 사용 (2개, 이상적으로 더 적게)
+함수를 사용할 땐 매개변수의 양을 제한하는 것이 매우 중요합니다.
+왜냐하면 그것이 함수에 대한 테스트를 보다 쉽게 만들어주기 때문입니다.
+매개변수를 세 개이상 사용하게 되면 조합확산의 문제가 생기며,
+그로인해 당신은 각각의 인수에 대한 다양한 경우의 수를 테스트 해야만 합니다.
 
-Zero arguments is the ideal case. One or two arguments is ok, and three should
-be avoided. Anything more than that should be consolidated. Usually, if you have
-more than two arguments then your function is trying to do too much. In cases
-where it's not, most of the time a higher-level object will suffice as an
-argument.
+인수가 0개인 것이 이상적인 경우입니다. 인수가 1개 또는 2개인 것도 괜찮으며, 3개이면 피해야 합니다.
+인수가 3개 이상이라면 그 인수들은 통합되어야 합니다. 
+보통 2개 이상의 인수가 있는 경우, 그 함수는 너무 많은 일을 하고 있습니다. 
+그게 아니라면 대부분의 경우 상위 오브젝트가 인수로서 
+충분할 것입니다.
 
-Since JavaScript allows us to make objects on the fly, without a lot of class
-boilerplate, you can use an object if you are finding yourself needing a
-lot of arguments.
+자바 스크립트는 다른 프로그래밍 언어와 달리 여러 상용 클래스를 덧붙일 필요 없이 
+즉석에서 오브젝트를 만들 수 있게 해줍니다. 그래서 많은 수의 인수가 필요한 경우 
+그냥 오브젝트를 사용하면 됩니다.
 
 **나쁜 예:**
 ```javascript
@@ -234,12 +234,12 @@ function createMenu(config) {
 **[⬆ 맨 위로](#목차)**
 
 
-### Functions should do one thing
-This is by far the most important rule in software engineering. When functions
-do more than one thing, they are harder to compose, test, and reason about.
-When you can isolate a function to just one action, they can be refactored
-easily and your code will read much cleaner. If you take nothing else away from
-this guide other than this, you'll be ahead of many developers.
+### 함수는 하나의 일만 해야한다
+이것은 소프트웨어 엔지니어링에 있어서 가장 중요한 규칙입니다. 
+함수가 두 개이상의 일을 할 때, 함수에 대한 작성, 테스트, 추론이 어려워집니다. 
+함수를 하나의 행동 단위로 작성하면 훨씬 쉽게 리팩토링 할 수 있으며,  
+코드 또한 훨씬 더 명확하게 읽히게 됩니다. 
+만약 당신이 이 가이드에서 이것만 배워간다고 하더라도, 당신은 다른 많은 개발자들보다 앞서 나갈 수 있습니다. 
 
 **나쁜 예:**
 ```javascript
@@ -268,7 +268,7 @@ function isClientActive(client) {
 ```
 **[⬆ 맨 위로](#목차)**
 
-### Function names should say what they do
+### 함수의 이름에는 그 함수가 하는 일이 표현되어야 한다
 
 **나쁜 예:**
 ```javascript
@@ -293,10 +293,10 @@ addMonthToDate(1, date);
 ```
 **[⬆ 맨 위로](#목차)**
 
-### Functions should only be one level of abstraction
-When you have more than one level of abstraction your function is usually
-doing too much. Splitting up functions leads to reusability and easier
-testing.
+### 함수는 추상화의 한 수준이어야한다
+보통 하나의 함수에 한 수준 이상의 추상화가 있는 경우, 
+그 함수는 너무 많은 일을 하고 있습니다.
+함수를 분리하면 재사용성이 높아지고 테스트가 쉬워집니다.
 
 **나쁜 예:**
 ```javascript
@@ -361,27 +361,27 @@ function parseBetterJSAlternative(code) {
 ```
 **[⬆ 맨 위로](#목차)**
 
-### Remove duplicate code
-Do your absolute best to avoid duplicate code. Duplicate code is bad because it
-means that there's more than one place to alter something if you need to change
-some logic.
+### 중복 되는 코드를 제거하라
+중복 되는 코드를 피하기 위해 최선을 다하십시오. 
+중복 되는 코드가 있다면 로직을 변경해야 할 일이 생겼을 때 
+두 곳 이상의 부분을 수정해야합니다. 
 
-Imagine if you run a restaurant and you keep track of your inventory: all your
-tomatoes, onions, garlic, spices, etc. If you have multiple lists that
-you keep this on, then all have to be updated when you serve a dish with
-tomatoes in them. If you only have one list, there's only one place to update!
+당신이 레스토랑을 운영하고 있으며, 재고를 추적하고 있다고 상상해 보십시오: 토마토, 양파, 마늘 향신료 등
+만약 당신이 이에 대한 여러 개의 리스트를 가지고 있다면, 
+토마토를 접시에 담을 때마다 각각의 리스트를 업데이트 해야 합니다.
+만약 당신이 오직 하나의 리스트만 가지고 있다면, 업데이트 할 것도 하나 뿐입니다!
 
-Oftentimes you have duplicate code because you have two or more slightly
-different things, that share a lot in common, but their differences force you
-to have two or more separate functions that do much of the same things. Removing
-duplicate code means creating an abstraction that can handle this set of
-different things with just one function/module/class.
+중복되는 코드를 가지게 되는 흔한 경우는 많은 부분에서 공통점을 가지고 있고 비슷한 일을 하지만,
+작은 차이가 있는 함수를 만들 때다. 실제로 두 함수는 많은 공통점을 가지지만
+이로 인해 두 개 이상의 함수로 나뉘어 중복되는 코드가 된다.
+중복 코드를 제거한다는 것은 하나의 함수/모듈/클래스를 가지고 
+여러 가지 집합을 처리 할 수 있는 추상화를 만드는 것을 의미합니다.
 
-Getting the abstraction right is critical, that's why you should follow the
-SOLID principles laid out in the *Classes* section. Bad abstractions can be
-worse than duplicate code, so be careful! Having said this, if you can make
-a good abstraction, do it! Don't repeat yourself, otherwise you'll find yourself
-updating multiple places anytime you want to change one thing.
+올바른 추상화를 취하는 것이 중요합니다.
+이를 위해선 *클래스* 섹션에서 제시된 원칙을 따라야만 합니다.
+나쁜 추상화는 중복되는 코드보다 나쁠 수 있으니 꼭 조심하세요!
+만약 당신이 좋은 추상화를 만들 수 있다면 그러세요! 반복하지 마세요.
+그렇지 않으면 단 하나의 요소만 변경 했는데도 여러 부분을 업데이트하고 있는 자신을 발견할 것입니다.
 
 **나쁜 예:**
 ```javascript
@@ -610,7 +610,7 @@ const addItemToCart = (cart, item) => {
 };
 ```
 
-**[⬆ back to top](#table-of-contents)**
+**[⬆ 맨 위로](#목차)**
 
 ### Don't write to global functions
 Polluting globals is a bad practice in JavaScript because you could clash with another
