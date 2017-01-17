@@ -40,7 +40,7 @@ you shout when reading code](http://www.osnews.com/images/comics/wtfm.jpg)
 대신 코드와 싸워 이깁시다!
 
 ## **변수**
-### Use meaningful and pronounceable variable names
+### 의미 있고 발음할 수 있는 변수 이름을 사용하라
 
 **나쁜 예:**
 ```javascript
@@ -53,7 +53,7 @@ const currentDate = moment().format('YYYY/MM/DD');
 ```
 **[⬆ 맨 위로](#목차)**
 
-### Use the same vocabulary for the same type of variable
+### 동일한 유형의 변수에는 동일한 단어를 사용하라
 
 **나쁜 예:**
 ```javascript
@@ -68,14 +68,14 @@ getUser();
 ```
 **[⬆ 맨 위로](#목차)**
 
-### Use searchable names
-We will read more code than we will ever write. It's important that the code we
-do write is readable and searchable. By *not* naming variables that end up
-being meaningful for understanding our program, we hurt our readers.
-Make your names searchable. Tools like
-[buddy.js](https://github.com/danielstjules/buddy.js) and
+### 검색하기 쉬운 이름을 사용하라
+우리는 직접 코드를 작성하는 것보다 더 오랜 시간 동안 다른 사람이 쓴 코드를 읽습니다. 
+따라서 코드는 읽기 쉽고 검색이 용이하게 작성되어야 합니다. 만약 우리가 프로그램을 이해하는 데 
+의미가 있는 변수의 이름을 짓지 못했다면, 그 코드를 읽는 사람은 고통에 빠질 것입니다.
+검색하기 쉽게 변수의 이름을 지으세요.
+[buddy.js](https://github.com/danielstjules/buddy.js)와
 [ESLint](https://github.com/eslint/eslint/blob/660e0918933e6e7fede26bc675a0763a6b357c94/docs/rules/no-magic-numbers.md)
-can help identify unnamed constants.
+같은 도구는 당신의 코드에서 이름 없는 상수를 찾는 데 도움을 줄 것입니다.
 
 **나쁜 예:**
 ```javascript
@@ -94,7 +94,7 @@ setTimeout(blastOff, MILLISECONDS_IN_A_DAY);
 ```
 **[⬆ 맨 위로](#목차)**
 
-### Use explanatory variables
+### 설명을 위한 변수를 사용하라
 **나쁜 예:**
 ```javascript
 const address = 'One Infinite Loop, Cupertino 95014';
@@ -111,8 +111,8 @@ saveCityZipCode(city, zipCode);
 ```
 **[⬆ 맨 위로](#목차)**
 
-### Avoid Mental Mapping
-Explicit is better than implicit.
+### 함축적인 이름 피하기
+함축적인 것보다 명백한 것이 낫습니다.
 
 **나쁜 예:**
 ```javascript
@@ -142,9 +142,9 @@ locations.forEach((location) => {
 ```
 **[⬆ 맨 위로](#목차)**
 
-### Don't add unneeded context
-If your class/object name tells you something, don't repeat that in your
-variable name.
+### 불필요한 전후 관계를 더하지 마라
+클래스나 오브젝트의 이름이 설명해주는 것을 
+변수의 이름에서 반복하지 마세요.
 
 **나쁜 예:**
 ```javascript
@@ -173,7 +173,7 @@ function paintCar(car) {
 ```
 **[⬆ 맨 위로](#목차)**
 
-### Use default arguments instead of short circuiting or conditionals
+### 단락 또는 조건문을 사용하는 대신 기본 아규먼트를 사용하라
 
 **나쁜 예:**
 ```javascript
