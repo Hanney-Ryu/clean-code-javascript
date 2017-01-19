@@ -2034,8 +2034,8 @@ review.perfReview();
 **[⬆ 맨 위로](#목차)**
 
 ## **주석**
-### Only comment things that have business logic complexity.
-Comments are an apology, not a requirement. Good code *mostly* documents itself.
+### 비지니스 로직의 복잡성에 대해서만 주석을 작성하라.
+주석은 선택 사항일 뿐 필수적인 것은 아니다. 좋은 코드는 *대개* 그 자체로 좋다.
 
 **나쁜 예:**
 ```javascript
@@ -2077,8 +2077,8 @@ function hashIt(data) {
 ```
 **[⬆ 맨 위로](#목차)**
 
-### Don't leave commented out code in your codebase
-Version control exists for a reason. Leave old code in your history.
+### 코드베이스에 주석 처리 된 코드를 남기지 말라
+버전 관리가 이런 이유 때문에 존재합니다. 오래된 코드는 히스토리에 남겨둡시다.
 
 **나쁜 예:**
 ```javascript
@@ -2094,9 +2094,9 @@ doStuff();
 ```
 **[⬆ 맨 위로](#목차)**
 
-### Don't have journal comments
-Remember, use version control! There's no need for dead code, commented code,
-and especially journal comments. Use `git log` to get history!
+### 저널 주석을 하지 말라
+반드시 버전 관리를 사용하세요! 데드 코드, 주석처리 된 코드, 특히 저널 주석은 필요 없게 됩니다.
+`git log`를 사용하면 지금까지의 히스토리를 살펴볼 수 있습니다!
 
 **나쁜 예:**
 ```javascript
@@ -2119,9 +2119,9 @@ function combine(a, b) {
 ```
 **[⬆ 맨 위로](#목차)**
 
-### Avoid positional markers
-They usually just add noise. Let the functions and variable names along with the
-proper indentation and formatting give the visual structure to your code.
+### 위치 마커를 피하라
+위치 표시는 종종 문제를 일으킵니다. 위치 표시를 하지 않더라도 
+함수와 변수의 이름에 적절한 들여쓰기와 포맷팅을 적용하면 코드에 시각적 구조가 생깁니다.
 
 **나쁜 예:**
 ```javascript
@@ -2156,7 +2156,7 @@ const actions = function() {
 
 ## 번역
 
-This is also available in other languages:
+이 문서는 다른 언어로도 이용 가능합니다:
 
   - ![br](https://raw.githubusercontent.com/gosquared/flags/master/flags/flags/shiny/24/Brazil.png) **Brazilian Portuguese**: [fesnt/clean-code-javascript](https://github.com/fesnt/clean-code-javascript)
   - ![cn](https://raw.githubusercontent.com/gosquared/flags/master/flags/flags/shiny/24/China.png) **Chinese**: [alivebao/clean-code-js](https://github.com/alivebao/clean-code-js)
