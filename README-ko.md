@@ -11,6 +11,7 @@
   8. [오류 처리](#오류-처리)
   9. [포맷팅](#포맷팅)
   10. [주석](#주석)
+  11. [번역](#번역)
 
 ## 소개
 ![Humorous image of software quality estimation as a count of how many expletives
