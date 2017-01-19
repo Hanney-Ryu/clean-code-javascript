@@ -220,17 +220,16 @@ function createMenu(title, body, buttonText, cancellable) {
 
 **좋은 예:**
 ```javascript
-const menuConfig = {
-  title: 'Foo',
-  body: 'Bar',
-  buttonText: 'Baz',
-  cancellable: true
-};
-
 function createMenu(config) {
   // ...
 }
 
+createMenu({
+  title: 'Foo',
+  body: 'Bar',
+  buttonText: 'Baz',
+  cancellable: true
+});
 ```
 **[⬆ 맨 위로](#목차)**
 
@@ -442,7 +441,7 @@ function showList(employees) {
 ```
 **[⬆ 맨 위로](#목차)**
 
-### Set default objects with Object.assign
+### Object.assign을 사용하여 기본 오브젝트를 설정하라
 
 **나쁜 예:**
 ```javascript
@@ -489,8 +488,8 @@ createMenu(menuConfig);
 **[⬆ 맨 위로](#목차)**
 
 
-### Don't use flags as function parameters
-Flags tell your user that this function does more than one thing. Functions should do one thing. Split out your functions if they are following different code paths based on a boolean.
+### 함수의 매개변수로 플래그를 사용하지 마라
+플래그는 당신의 함수가 두 가지 이상의 일을 하고 있다는 것을 보여주는 지표입니다. 함수는 한 가지 일만 해야합니다. 만약 불리언에 따라 코드의 경로가 달라진다면 함수를 분할해야합니다.
 
 **나쁜 예:**
 ```javascript
@@ -589,7 +588,7 @@ are pretty rare. Most things can be refactored to have no side effects!
 
   2. Cloning big objects can be very expensive in terms of performance. Luckily,
 this isn't a big issue in practice because there are
-[https://facebook.github.io/immutable-js/](great libraries) that allow
+[great libraries](https://facebook.github.io/immutable-js/) that allow
 this kind of programming approach to be fast and not as memory intensive as
 it would be for you to manually clone objects and arrays.
 
@@ -603,11 +602,7 @@ const addItemToCart = (cart, item) => {
 **Good:**
 ```javascript
 const addItemToCart = (cart, item) => {
-  const c = Object.assign({}, cart);
-
-  c.push({ item, date: Date.now() });
-
-  return c;
+  return [...cart, { item, date : Date.now() }];
 };
 ```
 
@@ -2158,3 +2153,14 @@ const actions = function() {
 };
 ```
 **[⬆ 맨 위로](#목차)**
+
+## 번역
+
+This is also available in other languages:
+
+  - ![br](https://raw.githubusercontent.com/gosquared/flags/master/flags/flags/shiny/24/Brazil.png) **Brazilian Portuguese**: [fesnt/clean-code-javascript](https://github.com/fesnt/clean-code-javascript)
+  - ![cn](https://raw.githubusercontent.com/gosquared/flags/master/flags/flags/shiny/24/China.png) **Chinese**: [alivebao/clean-code-js](https://github.com/alivebao/clean-code-js)
+  - ![de](https://raw.githubusercontent.com/gosquared/flags/master/flags/flags/shiny/24/Germany.png) **German**: [marcbruederlin/clean-code-javascript](https://github.com/marcbruederlin/clean-code-javascript)
+
+**[⬆ 맨 위로](#목차)**
+
