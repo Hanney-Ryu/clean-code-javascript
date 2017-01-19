@@ -514,21 +514,21 @@ function createTempFile(name) {
 ```
 **[⬆ 맨 위로](#목차)**
 
-### Avoid Side Effects (part 1)
-A function produces a side effect if it does anything other than take a value in
-and return another value or values. A side effect could be writing to a file,
-modifying some global variable, or accidentally wiring all your money to a
-stranger.
+### 부작용 피하기 (1부)
+값을 가져오거나 값을 리턴하는 것 외의 일을 하는 함수는 부작용을 일으킵니다.
+이 부작용은 파일을 덮여쓰거나, 
+전역변수를 수정하거나, 
+심지어는 모든 돈을 낯선 사람에게 송금하는 것일 수 있습니다. 
 
-Now, you do need to have side effects in a program on occasion. Like the previous
-example, you might need to write to a file. What you want to do is to
-centralize where you are doing this. Don't have several functions and classes
-that write to a particular file. Have one service that does it. One and only one.
+하지만 때때로 당신은 프로그램에 부작용을 일으킬 필요가 있습니다.
+앞에서 예로 들었듯 파일을 작성하는 함수가 필요할 때가 있기 때문입니다.
+그러기 위해선 부작용이 일어난 곳을 중앙집중화하여야 합니다. 특정 파일을 작성하는 여러가지 함수와 클래스를 
+만들지 마십시오. 오직 한가지, 한가지의 서비스만 만들어야 합니다.
 
-The main point is to avoid common pitfalls like sharing state between objects
-without any structure, using mutable data types that can be written to by anything,
-and not centralizing where your side effects occur. If you can do this, you will
-be happier than the vast majority of other programmers.
+요점은 함정들을 피하는 데 있습니다. 예컨대 정해진 구조 없이 오브젝트 간에 상태를 공유한다거나,
+무엇으로든 변경 가능한 데이터 타입을 사용한다거나,
+혹은 부작용이 일어나는 곳을 중앙집중화하지 않는다거나 하는 함정들 말입니다.
+만약 당신이 이렇게 할 수 있다면, 당신은 대부분의 다른 프로그래머보다 더 행복해질 수 있을 것 입니다.
 
 **나쁜 예:**
 ```javascript
@@ -559,38 +559,38 @@ console.log(newName); // ['Ryan', 'McDermott'];
 ```
 **[⬆ 맨 위로](#목차)**
 
-### Avoid Side Effects (part 2)
-In JavaScript, primitives are passed by value and objects/arrays are passed by
-reference. In the case of objects and arrays, if our function makes a change
-in a shopping cart array, for example, by adding an item to purchase,
-then any other function that uses that `cart` array will be affected by this
-addition. That may be great, however it can be bad too. Let's imagine a bad
-situation:
+### 부작용 피하기 (2부)
+자바 스크립트에서 프리미티브는 값으로 전달되며, 오브젝트/배열은 참조로 전달됩니다.
+말인즉 함수가 구매할 항목을 추가한다거나 하는 이유로 장바구니 배열(또는 오브젝트)을 변경하면
+해당 `cart` 배열을 사용하는 다른 모든 함수가 변경에 영향을 받게 된다는 것입니다. 
+이것은 정말 좋지만, 
+나쁠 때도 있습니다. 
+최악의 상황을 가정해봅시다.
 
-The user clicks the "Purchase", button which calls a `purchase` function that
-spawns a network request and sends the `cart` array to the server. Because
-of a bad network connection, the `purchase` function has to keep retrying the
-request. Now, what if in the meantime the user accidentally clicks "Add to Cart"
-button on an item they don't actually want before the network request begins?
-If that happens and the network request begins, then that purchase function
-will send the accidentally added item because it has a reference to a shopping
-cart array that the `addItemToCart` function modified by adding an unwanted
-item.
+한 쇼핑몰을 이용하는 사용자가 "구매"버튼을 클릭합니다.
+곧이어 네트워크 요청을 생성하는`purchase` 함수가 호출되고 `cart` 배열이 서버에 전송됩니다.
+그런데 네트워크 연결이 좋지 않아 `purchase` 함수의 요청이 다시 시도 됩니다.
+만약 재전송이 시도 되기 전 사용자가 실수로 원하지 않는 항목을 
+"장바구니에 추가" 했다면 어떻게 될까요?
+이 경우, addItemToCart 함수에 의해 장바구니에 원치 않는 항목이 추가된 뒤 
+수정 된 장바구니 배열에 대한 참조가 발생하고 
+그 결과 원치 않는 항목이 추가 된 리스트를 서버에 보내게 
+됩니다.
 
-A great solution would be for the `addItemToCart` to always clone the `cart`,
-edit it, and return the clone. This ensures that no other functions that are
-holding onto a reference of the shopping cart will be affected by any changes.
+가장 좋은 해결책은 `addItemToCart` 함수가 항상 `cart`를 복제하고,
+편집하고, 복제본을 리턴하도록 하는 것입니다.
+이렇게 하면 장바구니를 참조하는 함수들이 어떤 변화에도 영향을 받지 않게 됩니다.
 
-Two caveats to mention to this approach:
-  1. There might be cases where you actually want to modify the input object,
-but when you adopt this programming practice you will find that those case
-are pretty rare. Most things can be refactored to have no side effects!
+이 접근법에 대한 두 가지 주의사항:
+  1. 실제로 입력 오브젝트를 수정하고자 하는 경우가 있을 수 있습니다.
+하지만 이 프로그래밍 습관을 도입하면 그러한 사례들이 상당히 드물다는 것을 알게 될 것입니다.
+또한 대부분의 프로그램은 부작용을 일으키지 않도록 리팩토링 될 수 있습니다!
 
-  2. Cloning big objects can be very expensive in terms of performance. Luckily,
-this isn't a big issue in practice because there are
-[great libraries](https://facebook.github.io/immutable-js/) that allow
-this kind of programming approach to be fast and not as memory intensive as
-it would be for you to manually clone objects and arrays.
+  2. 큰 오브젝트를 복제하는 것은 성능 측면에서 매우 비쌉니다.
+하지만 운이 좋게도 이것은 큰 문제가 아닙니다. 왜냐하면 우리에겐
+[훌륭한 라이브러리](https://facebook.github.io/immutable-js/)가 있기 때문입니다. 
+이것이 수동으로 오브젝트와 배열을 복제할 수 있게 도와주며, 
+오브젝트의 복제를 빠르고 메모리 집약적이지 않게 만들어줍니다. 
 
 **Bad:**
 ```javascript
